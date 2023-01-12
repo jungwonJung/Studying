@@ -6,67 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .background {
+      body {
         background-color: black;
       }
-      .normalBox {
-        display: inline-block;
+      div {
+        width: 250px;
+        height: 250px;
         background-color: pink;
-        padding: 100px;
-        margin-top: 1px;
+        margin-bottom: 4px;
+        border-radius: 4px;
       }
       .checkBox {
-        display: inline-block;
         background-color: red;
-        padding: 100px;
-        margin-top: 1px;
       }
     </style>
   </head>
-  <body class="background">
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
     <div class="checkBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
-    <div class="normalBox"></div>
-    <br />
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
     <script>
-      const element = document.querySelector("div");
-      function domRect(event) {
-        console.log(element.getBoundingClientRect());
-      }
-      function screenXY(event) {
-        document.body.textContent = console.log(
-          "client: " + event.clientX,
-          event.clientY
-        );
-      }
-      function pageXY(event) {
-        document.body.textContent = console.log(
-          "page: " + event.pageX,
-          event.pageY
-        );
-      }
-
-      document.addEventListener("click", domRect);
-      document.addEventListener("click", screenXY);
-      document.addEventListener("click", pageXY);
+      const checkBox = document.querySelector(".checkBox");
+      checkBox.addEventListener("click", (event) => {
+        const rect = checkBox.getBoundingClientRect();
+        console.log(rect);
+        console.log("client: " + event.clientX, event.clientY);
+        console.log("page: " + event.pageX, event.pageY);
+      });
     </script>
   </body>
 </html>
