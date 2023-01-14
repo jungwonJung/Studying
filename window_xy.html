@@ -19,19 +19,42 @@
       .checkBox {
         background-color: red;
       }
-      button {
-        float: right;
-        width: 80px;
+      .scrollBy100px {
+        position: fixed;
+        right: 20%;
+        top: 0%;
+        width: 150px;
         height: 15px;
-        margin-right: 5px;
         font-size: 10px;
+        font-weight: 100;
+        text-align: center;
+      }
+      .scrollTo100px {
+        position: fixed;
+        right: 10%;
+        top: 0%;
+        width: 150px;
+        height: 15px;
+        font-size: 10px;
+        font-weight: 100;
+        text-align: center;
+      }
+      .scrollIntoSpecial {
+        position: fixed;
+        right: 0%;
+        top: 0%;
+        width: 150px;
+        height: 15px;
+        font-size: 10px;
+        font-weight: 100;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <button>button_1</button>
-    <button>button_2</button>
-    <button>button_3</button>
+    <button class="scrollIntoSpecial">scroll Into Special</button>
+    <button class="scrollBy100px">scroll By 100px</button>
+    <button class="scrollTo100px">scroll To 100px</button>
     <div></div>
     <div></div>
     <div></div>
@@ -45,11 +68,24 @@
     <div></div>
     <script>
       const checkBox = document.querySelector(".checkBox");
+      const scrollBy100px = document.querySelector(".scrollBy100px");
+      const scrollTo100px = document.querySelector(".scrollTo100px");
+      const scrollIntoSpecial = document.querySelector(".scrollIntoSpecial");
+
       checkBox.addEventListener("click", (event) => {
         const rect = checkBox.getBoundingClientRect();
         console.log(rect);
         console.log("client: " + event.clientX, event.clientY);
         console.log("page: " + event.pageX, event.pageY);
+      });
+      scrollBy100px.addEventListener("click", (event) => {
+        window.scrollBy(0, 100);
+      });
+      scrollTo100px.addEventListener("click", (event) => {
+        window.scrollTo(0, 100);
+      });
+      scrollIntoSpecial.addEventListener("click", (event) => {
+        window.scrollTo(190, 1200);
       });
     </script>
   </body>
